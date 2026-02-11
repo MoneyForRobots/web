@@ -1,9 +1,9 @@
 // app/page.tsx
 import Link from "next/link";
+import React from "react";
 
 const CodeBlock = ({ children }: { children: string }) => (
   <div className="rounded-2xl border border-zinc-200 bg-zinc-50 shadow-sm">
-    {/* extra right padding + stable container so it doesn’t feel glued to the edge on iOS */}
     <pre className="overflow-x-auto px-5 py-5 pr-8 text-sm leading-relaxed text-zinc-900">
       <code>{children}</code>
     </pre>
@@ -11,7 +11,7 @@ const CodeBlock = ({ children }: { children: string }) => (
 );
 
 const Pill = ({ children }: { children: React.ReactNode }) => (
-  <span className="inline-flex items-center rounded-full border border-zinc-200 bg-white px-3 py-1 text-xs font-medium text-zinc-700">
+  <span className="inline-flex shrink-0 items-center rounded-full border border-zinc-200 bg-white px-3 py-1 text-xs font-medium text-zinc-700">
     {children}
   </span>
 );
@@ -37,7 +37,7 @@ await agent.sendPayment({
 });`;
 
   return (
-    <div className="min-h-screen bg-white text-zinc-900">
+    <div className="min-h-screen overflow-x-hidden bg-white text-zinc-900">
       {/* Top bar */}
       <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white/80 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
@@ -63,7 +63,7 @@ await agent.sendPayment({
             </a>
           </nav>
 
-          <div className="flex flex-nowrap gap-2 overflow-x-auto">
+          <div className="flex flex-nowrap gap-2">
             <Link
               href="https://github.com/MoneyForRobots/web"
               className="hidden rounded-xl border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-800 hover:bg-zinc-50 md:inline-flex"
@@ -73,7 +73,6 @@ await agent.sendPayment({
               GitHub
             </Link>
 
-            {/* normalize button height on iOS */}
             <a
               href="#quickstart"
               className="inline-flex h-10 items-center justify-center rounded-xl bg-zinc-900 px-4 text-sm font-semibold leading-none text-white hover:bg-zinc-800"
@@ -85,16 +84,18 @@ await agent.sendPayment({
       </header>
 
       {/* Hero */}
-      <main>
-        {/* pt-14 -> pt-16 */}
-        <section className="pt-12 md:pt-24 pb-16">
+      <main className="overflow-x-hidden">
+        <section className="mx-auto max-w-6xl px-5 pt-10 pb-16 md:pt-20">
           <div className="grid gap-10 md:grid-cols-2 md:items-start">
             <div className="space-y-6">
-              <div className="flex flex-wrap gap-2">
-                <Pill>Base-first</Pill>
-                <Pill>Stablecoins</Pill>
-                <Pill>Non-custodial</Pill>
-                <Pill>Agent-native</Pill>
+              {/* Pills: one line on mobile, scroll if needed (no negative margins, no overflow bugs) */}
+              <div className="max-w-full overflow-x-auto whitespace-nowrap">
+                <div className="flex flex-nowrap gap-2">
+                  <Pill>Base-first</Pill>
+                  <Pill>Stablecoins</Pill>
+                  <Pill>Non-custodial</Pill>
+                  <Pill>Agent-native</Pill>
+                </div>
               </div>
 
               <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">
@@ -107,7 +108,6 @@ await agent.sendPayment({
                 funds, and send USDC from agents in minutes.
               </p>
 
-              {/* CTA buttons (mobile polish + iOS height normalization) */}
               <div className="mt-2 flex flex-col space-y-2 sm:mt-0 sm:flex-row sm:items-center sm:space-x-3 sm:space-y-0">
                 <a
                   href="#quickstart"
@@ -130,9 +130,7 @@ await agent.sendPayment({
               </p>
             </div>
 
-            {/* min-w-0 prevents overflow and “hugging” the right edge */}
             <div className="min-w-0 space-y-4">
-              {/* add mt-8 only on mobile */}
               <div className="mt-8 flex items-center justify-between md:mt-0">
                 <div className="text-sm font-semibold">Example</div>
                 <div className="text-xs text-zinc-500">TypeScript SDK</div>
@@ -232,7 +230,6 @@ await agent.sendPayment({
                   </div>
                 </div>
 
-                {/* Quickstart CTAs (py-2.5 -> py-3) */}
                 <div className="mt-8 flex flex-col space-y-2 sm:flex-row sm:space-x-3 sm:space-y-0">
                   <Link
                     href="https://github.com/MoneyForRobots/web"
