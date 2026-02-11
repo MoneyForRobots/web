@@ -63,7 +63,7 @@ await agent.sendPayment({
             </a>
           </nav>
 
-          <div className="flex items-center gap-3">
+          <div className="flex flex-nowrap gap-2 overflow-x-auto">
             <Link
               href="https://github.com/MoneyForRobots/web"
               className="hidden rounded-xl border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-800 hover:bg-zinc-50 md:inline-flex"
@@ -87,7 +87,7 @@ await agent.sendPayment({
       {/* Hero */}
       <main>
         {/* pt-14 -> pt-16 */}
-        <section className="mx-auto max-w-6xl px-5 pt-16 md:pt-20">
+        <section className="pt-12 md:pt-24 pb-16">
           <div className="grid gap-10 md:grid-cols-2 md:items-start">
             <div className="space-y-6">
               <div className="flex flex-wrap gap-2">
