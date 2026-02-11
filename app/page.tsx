@@ -86,7 +86,8 @@ await agent.sendPayment({
 
       {/* Hero */}
       <main>
-        <section className="mx-auto max-w-6xl px-5 pt-14 md:pt-20">
+        {/* pt-14 -> pt-16 */}
+        <section className="mx-auto max-w-6xl px-5 pt-16 md:pt-20">
           <div className="grid gap-10 md:grid-cols-2 md:items-start">
             <div className="space-y-6">
               <div className="flex flex-wrap gap-2">
@@ -110,7 +111,7 @@ await agent.sendPayment({
               <div className="mt-2 flex flex-col space-y-2 sm:mt-0 sm:flex-row sm:items-center sm:space-x-3 sm:space-y-0">
                 <a
                   href="#quickstart"
-                  className="inline-flex h-11 w-full items-center justify-center rounded-xl bg-zinc-900 px-5 text-sm font-semibold leading-none text-white hover:bg-zinc-800 sm:w-auto"
+                  className="inline-flex h-11 w-full items-center justify-center rounded-xl bg-zinc-900 px-5 py-3 text-sm font-semibold leading-none text-white hover:bg-zinc-800 sm:w-auto"
                 >
                   Get started
                 </a>
@@ -118,7 +119,7 @@ await agent.sendPayment({
                   href="https://github.com/MoneyForRobots/web"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex h-11 w-full items-center justify-center rounded-xl border border-zinc-200 px-5 text-sm font-semibold leading-none text-zinc-900 hover:bg-zinc-50 sm:w-auto"
+                  className="inline-flex h-11 w-full items-center justify-center rounded-xl border border-zinc-200 px-5 py-3 text-sm font-semibold leading-none text-zinc-900 hover:bg-zinc-50 sm:w-auto"
                 >
                   View GitHub
                 </Link>
@@ -129,9 +130,10 @@ await agent.sendPayment({
               </p>
             </div>
 
-            {/* min-w-0 prevents grid/flex children from overflowing and “hugging” the right edge */}
+            {/* min-w-0 prevents overflow and “hugging” the right edge */}
             <div className="min-w-0 space-y-4">
-              <div className="flex items-center justify-between">
+              {/* add mt-8 only on mobile */}
+              <div className="mt-8 flex items-center justify-between md:mt-0">
                 <div className="text-sm font-semibold">Example</div>
                 <div className="text-xs text-zinc-500">TypeScript SDK</div>
               </div>
@@ -230,19 +232,19 @@ await agent.sendPayment({
                   </div>
                 </div>
 
-                {/* Quickstart CTAs (mobile polish) */}
+                {/* Quickstart CTAs (py-2.5 -> py-3) */}
                 <div className="mt-8 flex flex-col space-y-2 sm:flex-row sm:space-x-3 sm:space-y-0">
                   <Link
                     href="https://github.com/MoneyForRobots/web"
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex w-full items-center justify-center rounded-xl bg-zinc-900 px-5 py-2.5 text-sm font-semibold text-white hover:bg-zinc-800 sm:w-auto"
+                    className="inline-flex w-full items-center justify-center rounded-xl bg-zinc-900 px-5 py-3 text-sm font-semibold text-white hover:bg-zinc-800 sm:w-auto"
                   >
                     Clone repo
                   </Link>
                   <a
                     href="#roadmap"
-                    className="inline-flex w-full items-center justify-center rounded-xl border border-zinc-200 bg-white px-5 py-2.5 text-sm font-semibold text-zinc-900 hover:bg-zinc-100 sm:w-auto"
+                    className="inline-flex w-full items-center justify-center rounded-xl border border-zinc-200 bg-white px-5 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-100 sm:w-auto"
                   >
                     See roadmap
                   </a>
