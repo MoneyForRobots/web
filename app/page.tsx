@@ -2,9 +2,12 @@
 import Link from "next/link";
 
 const CodeBlock = ({ children }: { children: string }) => (
-  <pre className="overflow-x-auto rounded-2xl border border-zinc-200 bg-zinc-50 p-5 text-sm leading-relaxed text-zinc-900 shadow-sm">
-    <code>{children}</code>
-  </pre>
+  <div className="rounded-2xl border border-zinc-200 bg-zinc-50 shadow-sm">
+    {/* extra right padding + stable container so it doesn’t feel glued to the edge on iOS */}
+    <pre className="overflow-x-auto px-5 py-5 pr-8 text-sm leading-relaxed text-zinc-900">
+      <code>{children}</code>
+    </pre>
+  </div>
 );
 
 const Pill = ({ children }: { children: React.ReactNode }) => (
@@ -69,9 +72,11 @@ await agent.sendPayment({
             >
               GitHub
             </Link>
+
+            {/* normalize button height on iOS */}
             <a
               href="#quickstart"
-              className="inline-flex rounded-xl bg-zinc-900 px-4 py-2 text-sm font-semibold text-white hover:bg-zinc-800"
+              className="inline-flex h-10 items-center justify-center rounded-xl bg-zinc-900 px-4 text-sm font-semibold leading-none text-white hover:bg-zinc-800"
             >
               Get started
             </a>
@@ -101,11 +106,11 @@ await agent.sendPayment({
                 funds, and send USDC from agents in minutes.
               </p>
 
-              {/* CTA buttons (mobile polish) */}
-              <div className="mt-2 flex flex-col space-y-2 sm:mt-0 sm:flex-row sm:items-center sm:space-y-0 sm:space-x-3">
+              {/* CTA buttons (mobile polish + iOS height normalization) */}
+              <div className="mt-2 flex flex-col space-y-2 sm:mt-0 sm:flex-row sm:items-center sm:space-x-3 sm:space-y-0">
                 <a
                   href="#quickstart"
-                  className="inline-flex w-full items-center justify-center rounded-xl bg-zinc-900 px-5 py-2.5 text-sm font-semibold text-white hover:bg-zinc-800 sm:w-auto"
+                  className="inline-flex h-11 w-full items-center justify-center rounded-xl bg-zinc-900 px-5 text-sm font-semibold leading-none text-white hover:bg-zinc-800 sm:w-auto"
                 >
                   Get started
                 </a>
@@ -113,7 +118,7 @@ await agent.sendPayment({
                   href="https://github.com/MoneyForRobots/web"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex w-full items-center justify-center rounded-xl border border-zinc-200 px-5 py-2.5 text-sm font-semibold text-zinc-900 hover:bg-zinc-50 sm:w-auto"
+                  className="inline-flex h-11 w-full items-center justify-center rounded-xl border border-zinc-200 px-5 text-sm font-semibold leading-none text-zinc-900 hover:bg-zinc-50 sm:w-auto"
                 >
                   View GitHub
                 </Link>
@@ -124,11 +129,13 @@ await agent.sendPayment({
               </p>
             </div>
 
-            <div className="space-y-4">
+            {/* min-w-0 prevents grid/flex children from overflowing and “hugging” the right edge */}
+            <div className="min-w-0 space-y-4">
               <div className="flex items-center justify-between">
                 <div className="text-sm font-semibold">Example</div>
                 <div className="text-xs text-zinc-500">TypeScript SDK</div>
               </div>
+
               <CodeBlock>{snippet}</CodeBlock>
 
               <div className="grid grid-cols-2 gap-3 text-xs text-zinc-600">
@@ -224,7 +231,7 @@ await agent.sendPayment({
                 </div>
 
                 {/* Quickstart CTAs (mobile polish) */}
-                <div className="mt-8 flex flex-col space-y-2 sm:flex-row sm:space-y-0 sm:space-x-3">
+                <div className="mt-8 flex flex-col space-y-2 sm:flex-row sm:space-x-3 sm:space-y-0">
                   <Link
                     href="https://github.com/MoneyForRobots/web"
                     target="_blank"
