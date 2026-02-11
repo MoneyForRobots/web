@@ -97,14 +97,15 @@ await agent.sendPayment({
               </h1>
 
               <p className="max-w-xl text-base leading-relaxed text-zinc-700 md:text-lg">
-                MoneyForRobots is a lightweight SDK for self-custodial stablecoin payments.
-                Create invoices, receive funds, and send USDC from agents in minutes.
+                MoneyForRobots is a lightweight SDK for self-custodial stablecoin payments. Create invoices, receive
+                funds, and send USDC from agents in minutes.
               </p>
 
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+              {/* CTA buttons (mobile polish) */}
+              <div className="mt-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
                 <a
                   href="#quickstart"
-                  className="inline-flex items-center justify-center rounded-xl bg-zinc-900 px-5 py-3 text-sm font-semibold text-white hover:bg-zinc-800"
+                  className="inline-flex w-full items-center justify-center rounded-xl bg-zinc-900 px-5 py-2.5 text-sm font-semibold text-white hover:bg-zinc-800 sm:w-auto"
                 >
                   Get started
                 </a>
@@ -112,7 +113,7 @@ await agent.sendPayment({
                   href="https://github.com/MoneyForRobots/web"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center justify-center rounded-xl border border-zinc-200 px-5 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-50"
+                  className="inline-flex w-full items-center justify-center rounded-xl border border-zinc-200 px-5 py-2.5 text-sm font-semibold text-zinc-900 hover:bg-zinc-50 sm:w-auto"
                 >
                   View GitHub
                 </Link>
@@ -192,8 +193,8 @@ await agent.sendPayment({
               <div>
                 <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Quickstart</h2>
                 <p className="mt-3 max-w-xl text-sm leading-relaxed text-zinc-700 md:text-base">
-                  Start with Base + USDC. This is the smallest possible surface area that’s still useful:
-                  initialize an agent, create an invoice, send a payment.
+                  Start with Base + USDC. This is the smallest possible surface area that’s still useful: initialize an
+                  agent, create an invoice, send a payment.
                 </p>
 
                 <div className="mt-6 space-y-3 text-sm text-zinc-700">
@@ -201,9 +202,7 @@ await agent.sendPayment({
                     <div className="mt-0.5 h-5 w-5 rounded-full border border-zinc-300 bg-white" />
                     <div>
                       <div className="font-semibold text-zinc-900">Install</div>
-                      <div className="mt-1 font-mono text-xs text-zinc-700">
-                        npm i moneyforrobots
-                      </div>
+                      <div className="mt-1 font-mono text-xs text-zinc-700">npm i moneyforrobots</div>
                     </div>
                   </div>
 
@@ -211,9 +210,7 @@ await agent.sendPayment({
                     <div className="mt-0.5 h-5 w-5 rounded-full border border-zinc-300 bg-white" />
                     <div>
                       <div className="font-semibold text-zinc-900">Set env vars</div>
-                      <div className="mt-1 font-mono text-xs text-zinc-700">
-                        AGENT_PRIVATE_KEY=...
-                      </div>
+                      <div className="mt-1 font-mono text-xs text-zinc-700">AGENT_PRIVATE_KEY=...</div>
                     </div>
                   </div>
 
@@ -221,25 +218,24 @@ await agent.sendPayment({
                     <div className="mt-0.5 h-5 w-5 rounded-full border border-zinc-300 bg-white" />
                     <div>
                       <div className="font-semibold text-zinc-900">Run the example</div>
-                      <div className="mt-1 font-mono text-xs text-zinc-700">
-                        node examples/pay.js
-                      </div>
+                      <div className="mt-1 font-mono text-xs text-zinc-700">node examples/pay.js</div>
                     </div>
                   </div>
                 </div>
 
-                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                {/* Quickstart CTAs (mobile polish) */}
+                <div className="mt-8 flex flex-col gap-2 sm:flex-row sm:gap-3">
                   <Link
                     href="https://github.com/MoneyForRobots/web"
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center justify-center rounded-xl bg-zinc-900 px-5 py-3 text-sm font-semibold text-white hover:bg-zinc-800"
+                    className="inline-flex w-full items-center justify-center rounded-xl bg-zinc-900 px-5 py-2.5 text-sm font-semibold text-white hover:bg-zinc-800 sm:w-auto"
                   >
                     Clone repo
                   </Link>
                   <a
                     href="#roadmap"
-                    className="inline-flex items-center justify-center rounded-xl border border-zinc-200 bg-white px-5 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-100"
+                    className="inline-flex w-full items-center justify-center rounded-xl border border-zinc-200 bg-white px-5 py-2.5 text-sm font-semibold text-zinc-900 hover:bg-zinc-100 sm:w-auto"
                   >
                     See roadmap
                   </a>
@@ -256,8 +252,8 @@ AGENT_PRIVATE_KEY=...
 # run
 node examples/pay.js`}</CodeBlock>
                 <p className="text-xs leading-relaxed text-zinc-500">
-                  The SDK will be open-source and composable. Start simple, then add receipts, confirmations,
-                  and listeners.
+                  The SDK will be open-source and composable. Start simple, then add receipts, confirmations, and
+                  listeners.
                 </p>
               </div>
             </div>
@@ -346,8 +342,8 @@ node examples/pay.js`}</CodeBlock>
               <div className="rounded-2xl border border-zinc-200 p-6">
                 <div className="text-sm font-semibold">What does “invoice” mean here?</div>
                 <p className="mt-2 text-sm leading-relaxed text-zinc-700">
-                  A structured payment request: amount, token, memo, and a recipient address—plus optional helpers
-                  for shareable links/QR data.
+                  A structured payment request: amount, token, memo, and a recipient address—plus optional helpers for
+                  shareable links/QR data.
                 </p>
               </div>
             </div>
@@ -355,9 +351,7 @@ node examples/pay.js`}</CodeBlock>
 
           <footer className="mt-14 border-t border-zinc-200 pt-8">
             <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-              <div className="text-sm text-zinc-600">
-                © {new Date().getFullYear()} MoneyForRobots
-              </div>
+              <div className="text-sm text-zinc-600">© {new Date().getFullYear()} MoneyForRobots</div>
               <div className="flex flex-wrap items-center gap-4 text-sm">
                 <Link
                   href="https://github.com/MoneyForRobots/web"
