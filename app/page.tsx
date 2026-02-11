@@ -3,8 +3,10 @@ import Link from "next/link";
 import React from "react";
 
 const CodeBlock = ({ children }: { children: string }) => (
-  <div className="rounded-2xl border border-zinc-200 bg-zinc-50 shadow-sm">
-    <pre className="overflow-x-auto px-5 py-5 pr-8 text-sm leading-relaxed text-zinc-900">
+  // UPDATED: make the *container* the scroller + constrain width
+  <div className="w-full max-w-full overflow-x-auto rounded-2xl border border-zinc-200 bg-zinc-50 shadow-sm">
+    {/* UPDATED: min-w-max prevents the code from forcing the page wider; it will scroll inside */}
+    <pre className="min-w-max px-5 py-5 text-sm leading-relaxed text-zinc-900">
       <code>{children}</code>
     </pre>
   </div>
@@ -88,9 +90,10 @@ await agent.sendPayment({
         <section className="mx-auto max-w-6xl px-5 pt-10 pb-16 md:pt-20">
           <div className="grid gap-10 md:grid-cols-2 md:items-start">
             <div className="space-y-6">
-              {/* Pills: one line on mobile, scroll if needed (no negative margins, no overflow bugs) */}
-              <div className="max-w-full overflow-x-auto whitespace-nowrap">
-                <div className="flex flex-nowrap gap-2">
+              {/* Pills */}
+              {/* UPDATED: outer constrained scroller, inner w-max row */}
+              <div className="w-full max-w-full overflow-x-auto">
+                <div className="flex w-max gap-2 pb-1">
                   <Pill>Base-first</Pill>
                   <Pill>Stablecoins</Pill>
                   <Pill>Non-custodial</Pill>
@@ -248,7 +251,7 @@ await agent.sendPayment({
                 </div>
               </div>
 
-              <div className="space-y-3">
+              <div className="space-y-3 min-w-0">
                 <div className="text-sm font-semibold">Install + pay</div>
                 <CodeBlock>{`npm i moneyforrobots
 
